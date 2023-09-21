@@ -65,6 +65,8 @@ class _CounterScreenState extends State<CounterScreen> {
             FloatingActionButton(
               shape: StadiumBorder(), // hace el botón circular
               onPressed: () {
+                if (clickCounter == 0) return;
+
                 // Para que la información se renderice en la vista
                 // tenemos que indidar que recargue el Widget
                 // así que metemos el incremento en el método de recarga
