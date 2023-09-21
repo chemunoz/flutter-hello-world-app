@@ -47,36 +47,54 @@ class _CounterScreenState extends State<CounterScreen> {
         floatingActionButton: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            FloatingActionButton(
-              shape: StadiumBorder(), // hace el botón circular
+            CustomButton(
+              icon: Icons.refresh_rounded,
               onPressed: () {
-                // Para que la información se renderice en la vista
-                // tenemos que indidar que recargue el Widget
-                // así que metemos el incremento en el método de recarga
                 setState(() {
-                  clickCounter++;
+                  clickCounter = 0;
                 });
               },
-              child: const Icon(Icons.plus_one),
             ),
             SizedBox(
               height: 10,
             ),
-            FloatingActionButton(
-              shape: StadiumBorder(), // hace el botón circular
+            CustomButton(
+              icon: Icons.plus_one,
+              onPressed: () {
+                setState(() {
+                  clickCounter++;
+                });
+              },
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            CustomButton(
+              icon: Icons.exposure_minus_1_outlined,
               onPressed: () {
                 if (clickCounter == 0) return;
-
-                // Para que la información se renderice en la vista
-                // tenemos que indidar que recargue el Widget
-                // así que metemos el incremento en el método de recarga
                 setState(() {
                   clickCounter--;
                 });
               },
-              child: const Icon(Icons.exposure_minus_1_outlined),
             )
           ],
         ));
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  final IconData icon;
+  final VoidCallback? onPressed;
+
+  const CustomButton({super.key, required this.icon, this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      shape: StadiumBorder(), // hace el botón circular
+      onPressed: onPressed,
+      child: Icon(icon),
+    );
   }
 }
