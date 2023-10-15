@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_world_app/presentation/screens/counter/custom_button.dart';
 
 class CounterScreen extends StatefulWidget {
   const CounterScreen({super.key});
@@ -19,7 +20,7 @@ class _CounterScreenState extends State<CounterScreen> {
             IconButton(
                 onPressed: () {
                   // Para que la información se renderice en la vista
-                  // tenemos que indidar que recargue el Widget
+                  // tenemos que indicar que recargue el Widget
                   // así que metemos el incremento en el método de recarga
                   setState(() {
                     clickCounter = 0;
@@ -80,21 +81,5 @@ class _CounterScreenState extends State<CounterScreen> {
             )
           ],
         ));
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  final IconData icon;
-  final VoidCallback? onPressed;
-
-  const CustomButton({super.key, required this.icon, this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return FloatingActionButton(
-      shape: StadiumBorder(), // hace el botón circular
-      onPressed: onPressed,
-      child: Icon(icon),
-    );
   }
 }

@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        debugShowCheckedModeBanner:
-            false, // Quita la etiqueta "debug" del simulador
+        // Quita la etiqueta "debug" del simulador
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
         home: const CounterScreen());
   }
